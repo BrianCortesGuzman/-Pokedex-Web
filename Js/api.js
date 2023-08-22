@@ -1,7 +1,6 @@
 const buscar2 = document.getElementById("buscar2");
 const buscar = document.getElementById("buscar");
-const Resultado = document.getElementById("Resultado"); // Corregido: Debes usar el ID correcto
-
+const Resultado = document.getElementById("Resultado"); 
 function getRandomPokemonNumber() {
   return Math.floor(Math.random() * 20) + 1;
 }
@@ -38,7 +37,7 @@ buscar.addEventListener("click", () => {
         Resultado.innerHTML = "Pokemon no encontrado.";
         return;
       }
-      const contentToDisplay = createCharacterCard(data); // Pasamos el objeto data directamente
+      const contentToDisplay = createCharacterCard(data);
       Resultado.innerHTML = contentToDisplay;
     })
     .catch((error) => {
@@ -53,7 +52,7 @@ setInterval(getRandomPokemon, 5000);
 function buildUrl(Buscardor) {
   return `https://pokeapi.co/api/v2/pokemon/${Buscardor}`;
 }
-
+ //-------------------------------------------------------------------------------
 function createCharacterCard(character) {
   const abilitiesList = character.abilities;
   const abilitiesHTML = abilitiesList
@@ -69,7 +68,7 @@ function createCharacterCard(character) {
       return `<li class="list-group-item">${statData.stat.name}: ${statData.base_stat}</li>`;
     })
     .join("");
-
+ //-------------------------------------------------------------------------------
   return `
     <br/>
     <div class="card" style="width: 20rem;">
